@@ -3272,3 +3272,254 @@ DELIMITER ;
 
 
 
+
+
+
+
+
+
+
+TBZNEWPROJ2
+
+
+
+
+
+
+style.css
+
+
+
+.prpcs{
+	background-color: #b3ff99;
+}
+.prval{
+	background-color: #ffe6f9;
+}
+.strpcs{
+	background-color: #ccf5ff;
+}
+.strval{
+	background-color: #fff0b3;
+}
+.carousel-inner{
+  /*width:30%;*/
+  max-height: 300px;
+}
+ /*style="width:600px;height: 300px;"*/
+/*body {
+    background-color: #efefef;
+}*/
+img {
+	width: 500px;
+	height: 300px;
+}
+table {
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+td {
+    border-radius: 25px;
+    padding: 0px; 
+    width: 100px;
+    height:100px;
+}​
+
+a {
+	display: block;
+}
+
+
+
+
+
+
+
+index.html
+
+
+
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title></title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<br>
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" align="center" style="width: 100%; height: 50%; float: left;">
+  <span id="lblhotseller"><h4>Today's Hot Seller Designs</h4></span>
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="http://172.25.0.44:151/TBZImages/LR0004818.jpg" alt="LR0004818">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://172.25.0.44:151/TBZImages/PE0002221.jpg" alt="PE0002221">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://172.25.0.44:151/TBZImages/LR0003639.jpg" alt="LR0003639">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<br><br>
+	<div align="center" id="divprpcs" style="width: 50%; height: 50%; float: left;">
+	    <table style="font-size:15px">
+	    	<h4>Today's Top Selling Products By Pcs</h4>
+	    	<tr>
+	    		{%for a1,b1 in my_data1%}
+	    		<td class="prpcs" align="center">
+	    			<a href="#" style="color: black">
+		            	<span id="lblitem_code1">{{a1}}</span><br>
+		            	<span id="lblpcs_sold1">{{b1}} Pcs</span>
+		            </a>
+	          	</td>
+	          	{%endfor%}
+	        </tr>
+	    </table>
+	    <a href="#">View all</a><br><br>
+	</div>
+	<div align="center" id="divprval" style="width: 50%; height: 50%; float: left;">
+	    <table style="font-size:15px">
+	        <h4>Today's Top Selling Products By Values</h4>
+	    	<tr>
+	    		{%for a2,b2 in my_data2%}
+	    		<td class="prval" align="center">
+	    			<a href="#" style="color: black">
+		            	<span id="lblitem_code2">{{a2}}</span><br>
+		            	<span id="lbl_prodval">{{b2}} Lakhs</span>
+		            </a>
+	          	</td>
+	          	{%endfor%}
+	        </tr>
+	    </table>
+	    <a href="#">View all</a><br><br>
+	</div>
+	<div align="center" id="divstrpcs" style="width: 50%; height: 50%; float: left;">
+	    <table style="font-size:15px">
+	        <h4>Today's Top Selling Stores By Pcs</h4>
+	    	<tr>
+	    		{%for a3,b3 in my_data3%}
+	    		<td class="strpcs" align="center">
+	    			<a href="#" style="color: black">
+		            	<span id="lblstore1">{{a3}}</span><br>
+		            	<span id="lbl_strpcs">{{b3}} Pcs</span>
+		            </a>
+	          	</td>
+	          	{%endfor%}
+	        </tr>
+	    </table>
+	    <a href="#">View all</a><br><br>
+	</div>
+	<div align="center" id="divstrval" style="width: 50%; height: 50%; float: left;">
+	    <table style="font-size:15px">
+	        <h4>Today's Top Selling Stores By Values</h4>
+	    	<tr>
+	    		{%for a4,b4 in my_data4%}
+	    		<td class="strval" align="center">
+	    			<a href="#" style="color: black">
+		            	<span id="lblstore2">{{a4}}</span><br>
+		            	<span id="lbl_strval">{{b4}} Lakhs</span>
+		            </a>
+	          	</td>
+	          	{%endfor%}
+	        </tr>
+	    </table>
+	    <a href="#">View all</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+views.py
+
+
+
+
+from django.shortcuts import render
+import pymssql
+from basicapp.db_settings import db_host,db_user,db_pwd,db_database
+# Create your views here.
+
+def index(request):
+	conn = pymssql.connect(db_host, db_user, db_pwd, db_database)
+	curr = conn.cursor()
+	rows_data1 = curr.execute("SELECT top 5 [ITEM_CODE]  as product,sum([nang] ) as [count] FROM [Catalogue].[dbo].[XXPOS_SALES_REPORT] where item_category = 'D' and item_code not in ( 'CH' , 'DM', 'DH' ) and voucher_date = '2018-10-02' group by [ITEM_CODE] order by [count] desc")
+	# rows_data = curr.execute("SELECT format([VOUCHER_DATE],'dd-MM-yyyy') SaleDate,[OPERATING_UNIT_NAME] Store,label_number, [SALE_TYPE],[DESIGN_NUMBER] TBZStyleNo,datediff( dd, [LABEL_DATE], [VOUCHER_DATE] ) LabelAge,datediff( dd, [NAVIAVAK_DATE] , [VOUCHER_DATE] )StoreAge,IsNull( ( select sum(nang) from xxtbz_stock_report where xxtbz_stock_report.design_number in ( xxpos_sales_report.design_number , xxpos_sales_report.model_number ) ) ,0)  StockPcs,IsNull( ( select count(distinct operating_unit_name ) from xxtbz_stock_report where xxtbz_stock_report.design_number in ( xxpos_sales_report.design_number , xxpos_sales_report.model_number ) ) ,0)  AvailableIn,[ITEM_CODE] Product,[PURITY]    KT,[METAL_COLOR] Color,[COLOR_CLARITY] Quality,[NANG]    Pcs,[NET_WEIGHT] NetWt,[CARAT_WEIGHT] DiaCts,[AMOUNT]   Value,IsNull([VARIETY],'')  OrderType,IsNull([JEWELLERY_COLLECTION_FLAG],'') Collection,IsNull([SUB_CATEGORY],'') SubCtgy FROM [Catalogue].[dbo].[XXPOS_SALES_REPORT] where item_category = 'D' and item_code not in ( 'CH' , 'DM', 'DH' ) and voucher_date = '2018-10-02' order by  OPERATING_UNIT_NAME, label_number, SALE_TYPE")
+	my_data1=curr.fetchall()
+	#print(my_data1)
+	rows_data2 = curr.execute("SELECT top 5 [ITEM_CODE]  as product,sum([AMOUNT]) as [count] FROM [Catalogue].[dbo].[XXPOS_SALES_REPORT] where item_category = 'D' and item_code not in ( 'CH' , 'DM', 'DH' ) and voucher_date = '2018-10-02' group by [ITEM_CODE] order by [count] desc")
+	my_data2=curr.fetchall()
+	temp_list3=[]
+	for row3 in my_data2:
+		row3=list(row3)
+		row3[1]=round(row3[1]/100000,2)
+		row3=tuple(row3)
+		temp_list3.append(row3)
+	my_data2=temp_list3
+	print(my_data2)
+	rows_data3 = curr.execute("SELECT top 5 [OPERATING_UNIT_NAME] Store,sum([nang]) as [count] FROM [Catalogue].[dbo].[XXPOS_SALES_REPORT] where item_category = 'D' and item_code not in ( 'CH' , 'DM', 'DH' ) and voucher_date = '2018-10-02' group by [OPERATING_UNIT_NAME] order by [count] desc")
+	my_data3=curr.fetchall()
+	temp_list1=[]
+	for row1 in my_data3:
+		row1=list(row1)
+		row1[0]=row1[0].replace(' Showroom','')
+		row1=tuple(row1)
+		temp_list1.append(row1)
+	my_data3=temp_list1
+	#print(my_data3)
+	rows_data4 = curr.execute("SELECT top 5 [OPERATING_UNIT_NAME] Store,sum([AMOUNT]) as [count] FROM [Catalogue].[dbo].[XXPOS_SALES_REPORT] where item_category = 'D' and item_code not in ( 'CH' , 'DM', 'DH' ) and voucher_date = '2018-10-02' group by [OPERATING_UNIT_NAME] order by [count] desc")
+	my_data4=curr.fetchall()
+	temp_list2=[]
+	for row2 in my_data4:
+		row2=list(row2)
+		row2[0]=row2[0].replace(' Showroom','')
+		row2[1]=round(row2[1]/100000,2)
+		row2=tuple(row2)
+		temp_list2.append(row2)
+	my_data4=temp_list2
+	#print(my_data4)
+	# my_data = [('DM','30','prpc1')]
+	return render(request,"index.html",{'my_data1':my_data1,'my_data2':my_data2,'my_data3':my_data3,'my_data4':my_data4})
+	# return render(request,"index.html")
